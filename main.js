@@ -35,53 +35,57 @@ function initNormalizationExample() {
     const steps = [
         {
             title: "Estado Inicial: No Normalizado",
-            description: "Una sola tabla con grupos repetidos y datos atómicos mezclados. ¡Un desastre!",
-            table: `
-                <table>
-                    <thead>
-                        <tr><th>Estudiante</th><th>Materias</th><th>Profesor</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Juan</td><td>BD, Redes</td><td>Ing. Gomez</td></tr>
-                        <tr><td>Maria</td><td>Programación</td><td>Ing. Ruiz</td></tr>
-                    </tbody>
-                </table>
-            `
-        },
-        {
-            title: "1FN: Primera Forma Normal",
-            description: "Eliminamos grupos repetidos. Ahora cada celda es atómica. Sin embargo, hay mucha redundancia, ya que repetimos información del estudiante para cada materia.",
+            description: "Una tabla con datos repetidos. Juan ve dos materias, y repetimos el nombre del profesor cada vez.",
             table: `
                 <table>
                     <thead>
                         <tr><th>Estudiante</th><th>Materia</th><th>Profesor</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Juan</td><td>BD</td><td>Ing. Gomez</td></tr>
-                        <tr><td>Juan</td><td>Redes</td><td>Ing. Gomez</td></tr>
-                        <tr><td>Maria</td><td>Programación</td><td>Ing. Ruiz</td></tr>
+                        <tr><td>Juan Pérez</td><td>Bases de Datos</td><td>Ing. Gomez</td></tr>
+                        <tr><td>Juan Pérez</td><td>Redes</td><td>Ing. Gomez</td></tr>
+                        <tr><td>Maria Lopez</td><td>Programación</td><td>Ing. Ruiz</td></tr>
+                    </tbody>
+                </table>
+            `
+        },
+        {
+            title: "1FN: Primera Forma Normal",
+            description: "Aseguramos atomicidad. En este caso los datos ya son atómicos, pero notamos la redundancia: 'Ing. Gomez' se repite.",
+            table: `
+                <table>
+                    <thead>
+                        <tr><th>Estudiante</th><th>Materia</th><th>Profesor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Juan Pérez</td><td>Bases de Datos</td><td>Ing. Gomez</td></tr>
+                        <tr><td>Juan Pérez</td><td>Redes</td><td>Ing. Gomez</td></tr>
+                        <tr><td>Maria Lopez</td><td>Programación</td><td>Ing. Ruiz</td></tr>
                     </tbody>
                 </table>
             `
         },
         {
             title: "2FN: Segunda Forma Normal",
-            description: "Separamos en tablas según la dependencia de la llave primaria. La tabla 'Materias' ahora solo contiene información de la materia, eliminando la redundancia de repetir el profesor en cada registro de estudiante.",
+            description: "Separamos los datos que dependen solo de la materia (Profesor) de los que dependen del estudiante (Inscripción).",
             table: `
-                <div class="multi-table" style="display: flex; gap: 1rem;">
+                <div class="multi-table" style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <div>
-                        <strong>Tabla Estudiantes-Materias</strong>
+                        <strong>Inscripciones</strong>
                         <table>
-                            <tr><th>Est_ID</th><th>Mat_ID</th></tr>
-                            <tr><td>1</td><td>A</td></tr>
-                            <tr><td>1</td><td>B</td></tr>
+                            <tr><th>Estudiante</th><th>Materia</th></tr>
+                            <tr><td>Juan Pérez</td><td>Bases de Datos</td></tr>
+                            <tr><td>Juan Pérez</td><td>Redes</td></tr>
+                            <tr><td>Maria Lopez</td><td>Programación</td></tr>
                         </table>
                     </div>
                     <div>
-                        <strong>Tabla Materias</strong>
+                        <strong>Materias (Catálogo)</strong>
                         <table>
-                            <tr><th>Mat_ID</th><th>Nombre</th><th>Profesor</th></tr>
-                            <tr><td>A</td><td>BD</td><td>Ing. Gomez</td></tr>
+                            <tr><th>Materia</th><th>Profesor</th></tr>
+                            <tr><td>Bases de Datos</td><td>Ing. Gomez</td></tr>
+                            <tr><td>Redes</td><td>Ing. Gomez</td></tr>
+                            <tr><td>Programación</td><td>Ing. Ruiz</td></tr>
                         </table>
                     </div>
                 </div>
@@ -89,13 +93,25 @@ function initNormalizationExample() {
         },
         {
             title: "3FN: Tercera Forma Normal",
-            description: "Eliminamos dependencias transitivas. El profesor está asignado a la materia, independientemente de qué estudiante la tome. Si cambia el profesor de 'BD', solo actualizamos un registro. ¡Modelo Optimizado!",
+            description: "Creamos entidades independientes para evitar duplicidad de nombres (Estudiantes, Profesores) y usamos IDs. ¡Cero redundancia de texto!",
             table: `
                 <div class="multi-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div><strong>Estudiantes</strong><table><tr><th>ID</th><th>Nom</th></tr></table></div>
-                    <div><strong>Materias</strong><table><tr><th>ID</th><th>Nom</th></tr></table></div>
-                    <div><strong>Inscripciones</strong><table><tr><th>EstID</th><th>MatID</th></tr></table></div>
-                    <div><strong>Profesores</strong><table><tr><th>ID</th><th>Nom</th></tr></table></div>
+                    <div>
+                        <strong>Estudiantes</strong>
+                        <table><tr><th>ID</th><th>Nombre</th></tr><tr><td>1</td><td>Juan Pérez</td></tr><tr><td>2</td><td>Maria Lopez</td></tr></table>
+                    </div>
+                    <div>
+                        <strong>Profesores</strong>
+                        <table><tr><th>ID</th><th>Nombre</th></tr><tr><td>10</td><td>Ing. Gomez</td></tr><tr><td>20</td><td>Ing. Ruiz</td></tr></table>
+                    </div>
+                    <div>
+                        <strong>Materias</strong>
+                        <table><tr><th>ID</th><th>Nombre</th><th>Prof_ID</th></tr><tr><td>A</td><td>BD</td><td>10</td></tr><tr><td>B</td><td>Redes</td><td>10</td></tr><tr><td>C</td><td>Progra</td><td>20</td></tr></table>
+                    </div>
+                    <div>
+                        <strong>Inscripciones</strong>
+                        <table><tr><th>Est_ID</th><th>Mat_ID</th></tr><tr><td>1</td><td>A</td></tr><tr><td>1</td><td>B</td></tr><tr><td>2</td><td>C</td></tr></table>
+                    </div>
                 </div>
             `
         }

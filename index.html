@@ -76,10 +76,25 @@
                 <h2 class="section-title">2. Presentación</h2>
                 <div class="glass-container">
                     <div class="intro-media">
-                        <img src="C:/Users/Miguel/.gemini/antigravity/brain/f78da38a-0aa7-483f-956a-c1ce8cd37a0b/data_chaos_vs_order_1769528953154.png"
-                            alt="Caos vs Orden en Datos" class="feature-image">
+                        <div class="chaos-order-visual">
+                            <div class="chaos-side">
+                                <div class="file-icon" style="transform: rotate(15deg); top: 10px; left: 20px;">DATA</div>
+                                <div class="file-icon" style="transform: rotate(-10deg); top: 40px; left: 50px;">DATA</div>
+                                <div class="file-icon" style="transform: rotate(45deg); top: 80px; left: 10px;">DATA</div>
+                                <span>CAOS</span>
+                            </div>
+                            <div class="arrow-divider">➜</div>
+                            <div class="order-side">
+                                <div class="database-icon">
+                                    <div class="db-layer"></div>
+                                    <div class="db-layer"></div>
+                                    <div class="db-layer"></div>
+                                </div>
+                                <span>ORDEN</span>
+                            </div>
+                        </div>
                         <div class="video-wrapper">
-                            <iframe width="562" height="315" src="https://www.youtube.com/embed/S_I5A6Xq6S8"
+                            <iframe width="562" height="315" src="https://www.youtube.com/embed/bO18KqbgmTI"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
@@ -155,6 +170,21 @@
                                 <li>¿Qué pasa si borramos la compra de Maria Lopez? ¿Perdemos también sus datos de
                                     contacto?</li>
                             </ul>
+                        </div>
+                    </div>
+
+                    <div class="anomalies-visual">
+                        <div class="anomaly-card">
+                            <h4>Anomalía de Inserción</h4>
+                            <p>No podemos registrar datos de un producto si nadie lo ha comprado aún (porque la tabla requiere un cliente).</p>
+                        </div>
+                        <div class="anomaly-card">
+                            <h4>Anomalía de Actualización</h4>
+                            <p>Si cambiamos el teléfono de Juan, debemos hacerlo en CADA fila donde aparezca. Si olvidamos una, tendremos inconsistencia.</p>
+                        </div>
+                        <div class="anomaly-card">
+                            <h4>Anomalía de Eliminación</h4>
+                            <p>Si borramos la única compra de Maria, borramos accidentalmente su información de contacto para siempre.</p>
                         </div>
                     </div>
                 </div>
@@ -252,6 +282,24 @@
                         </div>
                         <p class="instruction">Genera el Diagrama Entidad Relación (DER) y las tablas finales.</p>
                         <button class="btn-primary">Descargar Formato de Entrega</button>
+                    </div>
+
+                    <div class="tools-section">
+                        <h4>Herramientas Recomendadas</h4>
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <div class="tool-icon">🐬</div>
+                                <span>MySQL Workbench</span>
+                            </div>
+                            <div class="tool-card">
+                                <div class="tool-icon">⭐</div>
+                                <span>StarUML</span>
+                            </div>
+                            <div class="tool-card">
+                                <div class="tool-icon">📝</div>
+                                <span>Draw.io</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
