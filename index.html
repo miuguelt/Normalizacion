@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="video-wrapper">
-                            <iframe width="562" height="315" src="https://www.youtube.com/embed/bO18KqbgmTI"
+                            <iframe width="562" height="315" src="https://www.youtube.com/embed/knVwokXITGI"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
@@ -112,6 +112,16 @@
                         <span class="steam-tag">Ingeniería & Arte</span>
                         <p>Diseñar una base de datos es como construir un motor: requiere precisión técnica (Ingeniería)
                             pero también una estética funcional donde cada pieza encaja perfectamente (Arte).</p>
+                    </div>
+
+                    <div class="benefits-box">
+                        <h3>Beneficios Clave</h3>
+                        <ul>
+                            <li><strong>🛡️ Integridad de Datos:</strong> Asegura que la información sea correcta y consistente.</li>
+                            <li><strong>📉 Reducción de Redundancia:</strong> Evita duplicados innecesarios, ahorrando espacio.</li>
+                            <li><strong>🚀 Consultas Optimizadas:</strong> Tablas más pequeñas y organizadas permiten búsquedas más rápidas.</li>
+                            <li><strong>🔧 Facilidad de Mantenimiento:</strong> Actualizar un dato en un solo lugar propaga el cambio correctamente.</li>
+                        </ul>
                     </div>
 
                     <div class="quote-box">
@@ -191,6 +201,22 @@
 
                 <div id="contextualizacion" class="activity-block">
                     <h3>3.2 Contextualización</h3>
+
+                    <div class="concepts-grid">
+                        <div class="concept-card">
+                            <h4>🔑 Llave Primaria (PK)</h4>
+                            <p>Identificador único de cada registro en una tabla (ej. Cédula, ID).</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>🔗 Llave Foránea (FK)</h4>
+                            <p>Campo que conecta con la Llave Primaria de otra tabla para crear relaciones.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4>♻️ Redundancia</h4>
+                            <p>Repetición innecesaria de datos que ocupa espacio y causa errores.</p>
+                        </div>
+                    </div>
+
                     <div class="quiz-mini">
                         <p>Antes de avanzar, asegúrate de tener claros estos conceptos:</p>
                         <div class="check-list">
@@ -344,14 +370,20 @@
                     <dd>Propiedad que asegura que un atributo no sea divisible en partes más pequeñas con significado
                         propio.</dd>
 
-                    <dt>Transitividad</dt>
-                    <dd>Cuando una columna depende de otra columna que no es la llave primaria.</dd>
+                    <dt>Dependencia Transitiva</dt>
+                    <dd>Ocurre cuando un atributo no clave depende de otro atributo no clave (violación de 3FN).</dd>
 
                     <dt>Redundancia</dt>
                     <dd>Repetición innecesaria de datos en una base de datos.</dd>
 
                     <dt>Tupla</dt>
                     <dd>Término técnico para referirse a una fila o registro en una tabla relacional.</dd>
+
+                    <dt>Esquema Lógico</dt>
+                    <dd>Representación de la estructura de la base de datos independiente del software (SGBD) que se usará.</dd>
+
+                    <dt>Dependencia Parcial</dt>
+                    <dd>Ocurre cuando un atributo depende solo de una parte de una llave primaria compuesta (violación de 2FN).</dd>
                 </dl>
             </section>
 
