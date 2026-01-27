@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Aprendizaje: Normalización de Bases de Datos | ADSO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sena-logo">SENA</div>
+                <span>Instructor Virtual</span>
+            </div>
+            <nav class="side-nav">
+                <ul>
+                    <li><a href="#id-guia" class="active">1. Identificación</a></li>
+                    <li><a href="#presentacion">2. Presentación</a></li>
+                    <li><a href="#actividades">3. Actividades</a></li>
+                    <li class="sub-nav"><a href="#reflexion">3.1 Reflexión</a></li>
+                    <li class="sub-nav"><a href="#contextualizacion">3.2 Contexto</a></li>
+                    <li class="sub-nav"><a href="#apropiacion">3.3 Apropiación</a></li>
+                    <li class="sub-nav"><a href="#transferencia">3.4 Taller</a></li>
+                    <li><a href="#evidencias">4. Evidencias</a></li>
+                    <li><a href="#glosario">5. Glosario</a></li>
+                    <li><a href="#bibliografia">6. Bibliografía</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <header class="main-header">
+                <div class="header-overlay"></div>
+                <div class="header-content">
+                    <h1>Normalización de Bases de Datos</h1>
+                    <p class="subtitle">Guía de Aprendizaje GFPI-F-135</p>
+                    <div class="badge">Análisis y Desarrollo de Software</div>
+                </div>
+            </header>
+
+            <section id="id-guia" class="guide-section">
+                <h2 class="section-title">1. Identificación de la Guía</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Programa</label>
+                        <p>228118 - Análisis y Desarrollo de Software</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Proyecto</label>
+                        <p>"Construcción de software a la medida para el sector empresarial"</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Competencia</label>
+                        <p>Modelado de los artefactos del software</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Resultado de Aprendizaje</label>
+                        <p>Optimizar el modelo de datos de acuerdo con estándares y políticas de normalización</p>
+                    </div>
+                    <div class="info-card highlight">
+                        <label>Duración</label>
+                        <p>48 Horas</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="presentacion" class="guide-section fade-in">
+                <h2 class="section-title">2. Presentación</h2>
+                <div class="glass-container">
+                    <div class="intro-media">
+                        <img src="C:/Users/Miguel/.gemini/antigravity/brain/f78da38a-0aa7-483f-956a-c1ce8cd37a0b/data_chaos_vs_order_1769528953154.png"
+                            alt="Caos vs Orden en Datos" class="feature-image">
+                        <div class="video-wrapper">
+                            <iframe width="562" height="315" src="https://www.youtube.com/embed/S_I5A6Xq6S8"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <p>¡Hola, Aprendiz! Bienvenido a esta fase crucial de tu formación. Imagina que construyes un
+                        rascacielos sobre cimientos de arena; no importa qué tan bella sea la fachada, eventualmente
+                        colarsará. En el desarrollo de software, esos cimientos son tus <strong>Bases de Datos</strong>.
+                    </p>
+                    <p>La <strong>Normalización</strong> no es solo una regla técnica, es el arte de garantizar la
+                        integridad y eficiencia de la información. Al dominar esta técnica, no solo optimizas espacio,
+                        sino que aseguras que tu software sea escalable, profesional y de clase mundial.</p>
+
+                    <div class="steam-insight">
+                        <span class="steam-tag">Ingeniería & Arte</span>
+                        <p>Diseñar una base de datos es como construir un motor: requiere precisión técnica (Ingeniería)
+                            pero también una estética funcional donde cada pieza encaja perfectamente (Arte).</p>
+                    </div>
+
+                    <div class="quote-box">
+                        "Un modelo de datos bien normalizado es la diferencia entre un programador que 'hace que
+                        funcione' y un Desarrollador que crea soluciones robustas."
+                    </div>
+                </div>
+            </section>
+
+            <section id="actividades" class="guide-section">
+                <h2 class="section-title">3. Actividades de Aprendizaje</h2>
+
+                <div id="reflexion" class="activity-block">
+                    <h3>3.1 Reflexión Inicial: El Caos de "Don Pepe"</h3>
+                    <div class="problem-scenario">
+                        <p>Don Pepe tiene una ferretería exitosa. Registra sus ventas en un cuaderno (y luego en Excel)
+                            así:</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Teléfono</th>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Juan Pérez</td>
+                                        <td>555-1234</td>
+                                        <td>Martillo</td>
+                                        <td>$15.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Juan Pérez</td>
+                                        <td>555-1234</td>
+                                        <td>Clavos</td>
+                                        <td>$5.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maria Lopez</td>
+                                        <td>555-9876</td>
+                                        <td>Martillo</td>
+                                        <td>$15.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="questions">
+                            <p><strong>Analiza y responde:</strong></p>
+                            <ul>
+                                <li>¿Qué pasa si Juan Pérez cambia su número de teléfono? ¿En cuántos lugares debemos
+                                    actualizarlo?</li>
+                                <li>¿Cómo sabemos cuánto costaba el Martillo ayer si hoy subió de precio?</li>
+                                <li>¿Qué pasa si borramos la compra de Maria Lopez? ¿Perdemos también sus datos de
+                                    contacto?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contextualizacion" class="activity-block">
+                    <h3>3.2 Contextualización</h3>
+                    <div class="quiz-mini">
+                        <p>Antes de avanzar, asegúrate de tener claros estos conceptos:</p>
+                        <div class="check-list">
+                            <div class="check-item"><input type="checkbox"> ¿Sabes qué es una Llave Primaria (PK)?</div>
+                            <div class="check-item"><input type="checkbox"> ¿Crees que repetir el nombre de un cliente
+                                en 1000 filas es eficiente?</div>
+                            <div class="check-item"><input type="checkbox"> ¿Entiendes que una tabla representa una
+                                "Entidad" del mundo real?</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="apropiacion" class="activity-block">
+                    <h3>3.3 Apropiación: Las 3 Reglas de Oro</h3>
+                    <div class="steam-insight">
+                        <span class="steam-tag">Ciencia & Matemáticas</span>
+                        <p>Aplicaremos el rigor del método científico para observar anomalías y la lógica matemática
+                            para asegurar que cada dato esté en su lugar exacto.</p>
+                    </div>
+
+                    <div class="theory-cards">
+                        <div class="theory-card" data-step="1">
+                            <h4>1FN: Atomicidad</h4>
+                            <p>Elimina grupos repetidos y asegura valores indivisibles. Cada columna debe tener un único
+                                valor (atomicidad). No se permiten listas ni tablas anidadas dentro de una celda.</p>
+                            <div class="mini-video">
+                                <iframe width="100%" height="150" src="https://www.youtube.com/embed/Vu5x95UTD80"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="theory-card" data-step="2">
+                            <h4>2FN: Dependencia Total</h4>
+                            <p>Todo atributo debe depender de TODA la llave primaria. Aplica cuando hay llaves primarias
+                                compuestas. Todos los campos que no son llave deben depender de *toda* la llave
+                                compuesta, no solo de una parte.</p>
+                            <div class="mini-video">
+                                <iframe width="100%" height="150" src="https://www.youtube.com/embed/aZ68lE4_Lc4"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="theory-card" data-step="3">
+                            <h4>3FN: Independencia</h4>
+                            <p>Elimina dependencias entre columnas que no son llaves. Eliminar dependencias transitivas.
+                                Un campo no llave no debe depender de otro campo no llave. Ejemplo: La 'Dirección del
+                                Proveedor' depende del 'Proveedor', no del producto.</p>
+                            <div class="mini-video">
+                                <iframe width="100%" height="150" src="https://www.youtube.com/embed/rbeW4to0Yfc"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive-example">
+                        <h4>Ejemplo de Ingeniería de Datos</h4>
+                        <div id="normalization-steps">
+                            <!-- JS content here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="transferencia" class="activity-block">
+                    <h3>3.4 Transferencia: Taller de Normalización</h3>
+                    <div class="workshop-box">
+                        <p><strong>Reto:</strong> Eres el desarrollador principal de una Clínica Veterinaria. Te
+                            entregan este reporte y debes normalizarlo hasta 3FN.</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cod_Cita</th>
+                                        <th>Mascota</th>
+                                        <th>Dueño</th>
+                                        <th>Veterinario</th>
+                                        <th>Especialidad_Vet</th>
+                                        <th>Medicamentos_Recetados</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>C-001</td>
+                                        <td>Firulais</td>
+                                        <td>Carlos Ruiz</td>
+                                        <td>Dra. Ana</td>
+                                        <td>Cirugía</td>
+                                        <td>Amoxicilina, Vitaminas</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="instruction">Genera el Diagrama Entidad Relación (DER) y las tablas finales.</p>
+                        <button class="btn-primary">Descargar Formato de Entrega</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="evidencias" class="guide-section">
+                <h2 class="section-title">4. Evidencias de Aprendizaje</h2>
+                <table class="evidence-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Evidencia</th>
+                            <th>Descripción</th>
+                            <th>Instrumento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Conocimiento</strong></td>
+                            <td>Cuestionario técnico sobre reglas de normalización.</td>
+                            <td>Cuestionario LMS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desempeño</strong></td>
+                            <td>Observación del proceso de normalización en herramienta CASE.</td>
+                            <td>Lista de Chequeo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Producto</strong></td>
+                            <td>Diagrama Entidad-Relación y Diccionario de Datos.</td>
+                            <td>Rúbrica de Producto</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="glosario" class="guide-section">
+                <h2 class="section-title">5. Glosario</h2>
+                <dl class="glossary-list">
+                    <dt>Dependencia Funcional</dt>
+                    <dd>Relación entre atributos donde el valor de uno determina el valor de otro.</dd>
+
+                    <dt>Atomicidad</dt>
+                    <dd>Propiedad que asegura que un atributo no sea divisible en partes más pequeñas con significado
+                        propio.</dd>
+
+                    <dt>Transitividad</dt>
+                    <dd>Cuando una columna depende de otra columna que no es la llave primaria.</dd>
+
+                    <dt>Redundancia</dt>
+                    <dd>Repetición innecesaria de datos en una base de datos.</dd>
+
+                    <dt>Tupla</dt>
+                    <dd>Término técnico para referirse a una fila o registro en una tabla relacional.</dd>
+                </dl>
+            </section>
+
+            <section id="bibliografia" class="guide-section">
+                <h2 class="section-title">6. Bibliografía</h2>
+                <ul class="bib-list">
+                    <li>Codd, E. F. (1970). A Relational Model of Data for Large Shared Data Banks. Communications of
+                        the ACM.</li>
+                    <li>SENA. (2024). Material de Formación: Diseño de Bases de Datos Relacionales. Plataforma Zajuna.
+                    </li>
+                    <li>Silberschatz, A., Korth, H. F., & Sudarshan, S. (2019). Database System Concepts (7th ed.).
+                        McGraw-Hill.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
