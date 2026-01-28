@@ -601,3 +601,54 @@ th {
         margin-bottom: 1rem;
     }
 }
+
+/* Benefits Box */
+.benefits-box {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 255, 100, 0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.benefits-box h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.benefits-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-box li {
+    margin-bottom: 1rem;
+}
+
+.benefits-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* Concepts Grid */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.concept-card {
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+}
+
+.concept-card h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.concept-card p {
+    font-size: 0.9rem;
+}
